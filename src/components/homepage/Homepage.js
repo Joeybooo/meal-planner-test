@@ -5,16 +5,25 @@ import Footer from "../allpages/Footer";
 import Header from "../allpages/Header";
 import Tabs from '../allpages/Tabs';
 
+const data = [ 
+    {
+        heading: "About",
+        body: <About />
+    },
+    {
+        heading: "Loging/Sign-Up",
+        body: <LoginSignup />
+    }
+]
+
 function Homepage() {
     return (
         <div>
             <Header></Header>
-            <Tabs></Tabs>
-            <About></About>
-            <LoginSignup></LoginSignup>
+            <Tabs data={data} />
             <Footer></Footer>
         </div>
     );
 }
 
-export default Homepage
+export default Homepage;

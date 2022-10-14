@@ -26,7 +26,7 @@ const data = [
     body: <CreateRecipes />
   },
   {
-    heading: "Sign-out",
+    heading: "Sign-Out",
     body: <SignOut />
   }
 ];
