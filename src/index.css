@@ -18,22 +18,13 @@ body{
   text-align: center;
 }
 
+/* ----------- FOOTER ------------------ */
 .page-footer{
   background-color: var(--primary-color);  height: 7vh;
   margin-top: 7vh;
 }
 
-.header {
-  text-align: left;
-  text-shadow: 1px 1px #1c02217d;
-  color: var(--tertiary-color);
-}
-
-/* about page */
-.about-img {
-  width: 250px;
-  border: var(--quinary-color) solid 4px;
-}
+/* Joey Css for react*/
 
 .navbar, .navbar-brand {
   text-align: center;
@@ -71,4 +62,16 @@ main {
       margin-left: 2em;
       margin-right: 2em;
     }
+}
+
+/* about page */
+.about-img {
+  width: 250px;
+  border: var(--quinary-color) solid 4px;
+}
+
+.header {
+  text-align: left;
+  text-shadow: 1px 1px #1c02217d;
+  color: var(--tertiary-color);
 }
