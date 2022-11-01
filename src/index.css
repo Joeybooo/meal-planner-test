@@ -1,9 +1,13 @@
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
+
 :root {
   --primary-color : #CEA07E;
   --secondary-color: #E2E8C0;
   --tertiary-color: #EDD9A3;
   --quaternary-color: #846C5B;
-  --quinary-color: #443742;     
+  --quinary-color: #443742; 
 }
 *{
   margin: 0;
