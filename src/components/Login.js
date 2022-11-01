@@ -3,12 +3,15 @@ import { loginFields } from "../constants/formFields";
 import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
 import Input from "./Input";
+import {Link, Routes, Route, UseNavigate, useNavigate} from 'react-router-dom';
 
 const fields=loginFields;
 let fieldsState = {};
 fields.forEach(field=>fieldsState[field.id]='');
 
 export default function Login(){
+    const navigate = useNavigate();
+
     const [loginState,setLoginState]=useState(fieldsState);
 
     const handleChange=(e)=>{
@@ -23,7 +26,7 @@ export default function Login(){
 
     //Handle Login API Integration here
     const authenticateUser = () =>{
-        
+        navigate('/Core');
     }
 
     return(
