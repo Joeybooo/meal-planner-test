@@ -37,7 +37,7 @@ router.get('/:id', (req, res) => {
 
 // POST /api/users
 router.post('/', (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {username: 'joeyboo', email: 'joeybyrd@testmail.com', password: 'password1234'}
     User.create({
       username: req.body.username,
       email: req.body.email,
@@ -50,9 +50,36 @@ router.post('/', (req, res) => {
       });
   });
 
+  router.post('/login', (req, res) => {
+    // expects {email: 'joeybyrd@testmail.com', password: 'password1234'}
+    User.findOne({
+      where: {
+        email: req.body.email
+      }
+    }) 
+      .then(dbUserData => {
+        if (!dbUserData) {
+          res.status(400).json({ message: 'No account with that email' });
+           return;
+        }
+
+  res.json({ user: dbUserData });
+
+  // Verify user
+  const validPassword = dbUserData.checkPassword(req.body.password);
+  if (!validPassword) {
+    res.status(400).json({ message: 'Incorrect password!' });
+    return;
+  }
+  
+  res.json({ user: dbUserData, message: 'Logged in!' });
+
+  });  
+});
+
 // PUT /api/users/1
 router.put('/:id', (req, res) => {
-    // expects {username: 'Lernantino', email: 'lernantino@gmail.com', password: 'password1234'}
+    // expects {username: 'joeyboo', email: 'joeybyrd@testmail.com', password: 'password1234'}
   
     // if req.body has exact key/value pairs to match the model, you can just use `req.body` instead
     User.update(req.body, {
