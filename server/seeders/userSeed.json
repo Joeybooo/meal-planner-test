@@ -1,5 +1,9 @@
 [
     {
-        
+        "username" : "Joey99", 
+        "email" : "joey99@gmail.com", 
+        "password" : "121212121", 
+        "friends" : [], 
+        "recipes" : [] 
     }
 ]

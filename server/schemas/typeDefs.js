@@ -23,7 +23,7 @@ type User {
   _id: ID
   username: String
   email: String
-  friendsCount: Int
+  friendCount: Int
   recipes: [Recipe]
   friends: [User]
 }

@@ -8,7 +8,7 @@ const recipeSchema = new Schema(
       type: String,
       required: 'Create Recipe',
       minlength: 1,
-      maxlength: 280
+      maxlength: 1000
     },
     createdAt: {
       type: Date,

@@ -2,7 +2,7 @@ import React from "react";
 
 const RecipeList = ({ recipes, title }) => {
     if (!RecipeList.lenght) {
-        return <h3> No Recipes Yet! Login or Signup to add your own</h3>;
+        return <h3> No Recipes Yet! Add Your Own So Others Can See!</h3>;
     }
 
     return (

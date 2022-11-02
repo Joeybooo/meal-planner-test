@@ -50,7 +50,7 @@ const resolvers = {
           throw new AuthenticationError('Inccorect Email or Username');
         }
 
-        const correctPw = await user.isCOrrectPassword(password);
+        const correctPw = await user.isCorrectPassword(password);
 
         if (!correctPw) {
           throw new AuthenticationError('Incorrect Password');

@@ -1,5 +1,12 @@
 [
     {
-        
+        "recipeTest" : "this is a test recipe",
+        "username" : "Joey99",
+        "reactions" : [
+            {
+                "reactionBody": "test reaction",
+                "username": "filler user"
+            }
+        ]
     }
 ]
