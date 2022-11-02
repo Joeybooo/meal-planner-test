@@ -37,3 +37,33 @@ export const ADD_FRIEND = gql`
     }
   }
 `;
+
+export const ADD_RECIPE = gql`
+  mutation addRecipe($recipeText: String!) {
+    addRecipe(recipeText: $recipeText) {
+      _id
+      recipeText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+      }
+    }
+  }
+`;
+
+export const ADD_REACTION = gql`
+  mutation addReaction($recipeId: ID!, $reactionBody: String!) {
+    addReaction(recipeId: $recipeId, reactionBody: $reactionBody) {
+      _id
+      reactionCount
+      reactions {
+        _id
+        reactionBody
+        createdAt
+        username
+      }
+    }
+  }
+`;
