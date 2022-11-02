@@ -3,7 +3,7 @@ import { loginFields } from "../constants/formFields";
 import FormAction from "./FormAction";
 import FormExtra from "./FormExtra";
 import Input from "./Input";
-import {Link, Routes, Route, UseNavigate, useNavigate} from 'react-router-dom';
+import {Link, Routes, Route, useNavigate} from 'react-router-dom';
 
 const fields=loginFields;
 let fieldsState = {};
