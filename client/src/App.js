@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
 import {
-  BrowserRouter,
+  BrowserRouter as
+  Router,
   Routes,
   Route,
 } from "react-router-dom";
 import SignupPage from './pages/Signup';
 import LoginPage from './pages/Login';
-import CorePage from './components/Core';
 import Home from './pages/Home';
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 const httpLink = createHttpLink({
@@ -31,7 +31,6 @@ function App() {
             <Routes>
               <Route path="/" element={<LoginPage/>} />
               <Route path="/signup" element={<SignupPage/>} />
-              <Route path='/Core' element={<CorePage/>} />
             </Routes>
           </BrowserRouter>
         </div>
