@@ -29,11 +29,26 @@ type User {
 }
 
 type Query {
+    me: User
     users: [User]
     user(username: String!): User
     recipes(username: String): [Recipe]
     recipe(_id: ID!): Recipe
   }
+
+type Mutation {
+    login(email: String!, password: String!): Auth
+    addUser(username: String!, email: String!, password: String!): Auth
+    addRecipe(recipeText: String!): Recipe
+    addReaction(recipeId: ID!, reactionBody: String!): Recipe
+    addFriend(friendId: ID!): User
+}
+
+type Auth {
+  token: ID!
+  user: User
+}
+
 `;
 
 // export the typeDefs

@@ -1,23 +1,31 @@
-const faker = require('faker');
-
+// const faker = require('faker');
+const userSeeds = require('./userSeed.json');
+const recipeSeeds = require('./recipeSeed.json');
 const db = require('../config/connection');
-const { User } = require('../models');
+const { Recipe, User } = require('../models');
 
 db.once('open', async () => {
-  await User.deleteMany({});
+  try {
+    await Recipe.deleteMany({});
+    await User.deleteMany({});
 
-  // create user data
-  const userData = [];
+    await User.create(userSeeds);
 
-  for (let i = 0; i < 50; i += 1) {
-    const username = faker.internet.userName();
-    const email = faker.internet.email(username);
-    const password = faker.internet.password();
-
-    userData.push({ username, email, password });
+    for (let i = 0; i < thoughtSeeds.length; i++) {
+      const { _id, recipeAuthor } = await Recipe.create(recipeSeeds[i]);
+      const user = await User.findOneAndUpdate(
+        { username: recipeAuthor },
+        {
+          $addToSet: {
+            recipes: _id,
+          },
+        }
+      );
+    }
+  } catch (err) {
+    console.error(err);
+    process.exit(1);
   }
-
-  const createdUsers = await User.collection.insertMany(userData);
 
   console.log('all done!');
   process.exit(0);
