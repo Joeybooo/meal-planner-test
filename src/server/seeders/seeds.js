@@ -4,7 +4,6 @@ const db = require('../config/connection');
 const { User } = require('../models');
 
 db.once('open', async () => {
-  await Thought.deleteMany({});
   await User.deleteMany({});
 
   // create user data

@@ -21,11 +21,11 @@
     "faker": "^4.1.0"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "jest",
     "eject": "react-scripts eject",
-    "seed": "node seeders/seeds.js",
+    "seed": "node src/server/seeders/seeds.js",
     "watch": "nodemon"
   },
   "eslintConfig": {
