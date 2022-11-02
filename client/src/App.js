@@ -6,9 +6,17 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
+
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 import SignupPage from './pages/Signup';
 import LoginPage from './pages/Login';
 import Home from './pages/Home';
+import NoRecipe from './pages/NoRecipe';
+import SingleRecipe from './pages/SingpleRecipe';
+import Profile from './pages/Profile'
+
 import { ApolloProvider, ApolloClient, InMemoryCache, createHttpLink } from '@apollo/client';
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -24,17 +32,40 @@ const client = new ApolloClient({
 function App() {
   return (
     <ApolloProvider client={client}>
-      <div className='min-h-full h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8'>
-        <div className="max-w-md w-full space-y-8">
-          <Home />
-          <BrowserRouter>
+      <Router>
+        <div className="flex-column justify-flex-start min-100-vh">
+          <Header />
+          <div className="container">
             <Routes>
-              <Route path="/" element={<LoginPage/>} />
-              <Route path="/signup" element={<SignupPage/>} />
+              <Route
+                path="/"
+                element={<Home />}
+              />
+              <Route
+                path="/login"
+                element={<LoginPage />}
+              />
+              <Route
+                path="/signup"
+                element={<SignupPage />}
+              />
+              <Route path="/profile">
+                <Route path=":username" element={<Profile />}/>
+                <Route path="" element={<Profile />} />
+              </Route>
+              <Route
+                path="/recipe/:id"
+                element={<SingleRecipe />}
+              />
+              <Route 
+                path="*" 
+                element={<NoRecipe />} 
+              />
             </Routes>
-          </BrowserRouter>
+          </div>
+          <Footer />
         </div>
-      </div>
+      </Router>
     </ApolloProvider>
   );
 }

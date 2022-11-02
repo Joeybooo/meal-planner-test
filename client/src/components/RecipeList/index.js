@@ -12,15 +12,22 @@ const RecipeList = ({ recipes, title }) => {
         recipes.map(recipe => (
           <div key={recipe._id} className="card mb-3">
             <p className="card-header">
-              {recipe.username}
-              recipe on {recipe.createdAt}
+              <link
+                to={`/profile/${recipe.username}`}
+                style={{ fontWeight: 700 }}
+                className="text-light"
+                >
+                  {recipe.username}
+                </link>{''}
+                Recipe made on {recipe.createdAt}
             </p>
             <div className="card-body">
-              <p>{recipe.recipeText}</p>
-              <p className="mb-0">
-                Reactions: {recipe.reactionCount} || Click to{' '}
-                {recipe.reactionCount ? 'see' : 'start'} the discussion!
-              </p>
+              <link to={`/recipe/$/thought._id`}>
+                <p>{recipe.recipeText}</p>
+                <p className="mb-0">
+                  Reactions: {recipe.reactionCount ? 'see' : 'Start'} Comments!
+                </p>
+              </link>
             </div>
           </div>
         ))}

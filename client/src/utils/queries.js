@@ -1,19 +1,58 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_RECIPES = gql `
-    query recipes($username: String) {
-        recipes(username: $username) {
-            _id
-            recipeText
-            createdAt
-            username
-            reactionCount
-            reactions {
-                _id
-                createdAt
-                username
-                reactionBody
-            }
-        }
+export const QUERY_RECIPES = gql`
+  query thoughts($username: String) {
+    thoughts(username: $username) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
     }
+  }
+`;
+
+export const QUERY_RECIPE = gql`
+  query thought($id: ID!) {
+    thought(_id: $id) {
+      _id
+      thoughtText
+      createdAt
+      username
+      reactionCount
+      reactions {
+        _id
+        createdAt
+        username
+        reactionBody
+      }
+    }
+  }
+`;
+
+export const QUERY_USER = gql`
+  query user($username: String!) {
+    user(username: $username) {
+      _id
+      username
+      email
+      friendCount
+      friends {
+        _id
+        username
+      }
+      thoughts {
+        _id
+        recipeText
+        createdAt
+        reactionCount
+      }
+    }
+  }
 `;
