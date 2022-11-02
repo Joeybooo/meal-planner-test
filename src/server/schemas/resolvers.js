@@ -1,7 +1,10 @@
+const { User, Recipe } = require('../models');
+
 const resolvers = {
     Query: {
-      helloWorld: () => {
-        return 'Hello world!';
+      recipes: async () => {
+        const params = username ? { username } : {};
+        return Recipe.find(params).sort({ createdAt: -1 });
       }
     }
   };
