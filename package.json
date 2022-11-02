@@ -6,10 +6,10 @@
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^13.5.0",
-    "bcrypt": "^5.1.0",
+    "bcrypt": "^4.0.1",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2",
-    "mongoose": "^6.7.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.9",
     "mysql2": "^2.3.3",
     "react": "^17.0.0",
     "react-dom": "^17.0.0",
@@ -17,13 +17,16 @@
     "react-scripts": "5.0.1",
     "react-tabs": "^4.2.1",
     "sequelize": "^6.25.3",
-    "web-vitals": "^2.1.4"
+    "web-vitals": "^2.1.4",
+    "faker": "^4.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "node server.js",
     "build": "react-scripts build",
     "test": "jest",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "seed": "node seeders/seeds.js",
+    "watch": "nodemon"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +50,7 @@
     "autoprefixer": "^10.4.13",
     "jest": "^27.5.1",
     "postcss": "^8.4.18",
-    "tailwindcss": "^3.2.1"
+    "tailwindcss": "^3.2.1",
+    "nodemon": "^2.0.3"
   }
 }
