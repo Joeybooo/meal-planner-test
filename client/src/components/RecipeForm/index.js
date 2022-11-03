@@ -19,12 +19,11 @@ const RecipeForm = () => {
               } catch (e) {
                 console.warn("First Recipe")
               }
-          
-        const { recipes } = cache.readQuery({ query: QUERY_RECIPES });
-        cache.writeQuery({
-            query: QUERY_RECIPES,
-            data: { recipes: [addRecipe, ...recipes] }
-    });
+              const { recipes } = cache.readQuery({ QUERY_RECIPES });
+              cache.writeQuery({
+                query: QUERY_RECIPES,
+                data: { recipes: [addRecipe, ...recipes]},
+              });
   }
 });
 
